@@ -79,10 +79,10 @@ h1 {
 }
 
 .buttons a:hover {
-  border-color: #00ffcc;
-  color: #00ffcc;
+  border-color: #fd924d;
+  color: #fd924d;
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 255, 204, 0.2);
+  box-shadow: 0 10px 25px rgba(253, 146, 77, 0.2);
 }
 
 .buttons a:hover::before {
@@ -150,7 +150,7 @@ h1 {
 
 .feature-list li::before {
   content: "▸";
-  color: #00ffcc;
+  color: #fd924d;
   font-weight: bold;
   font-size: 1.2rem;
 }
@@ -182,7 +182,7 @@ h1 {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(0, 255, 204, 0.15),
+    rgba(253, 146, 77, 0.15),
     transparent
   );
   animation: shine 3s infinite;
@@ -217,20 +217,20 @@ h1 {
 .cta-button {
   display: inline-block;
   padding: 15px 40px;
-  background: #00ffcc;
+  background: #fd924d;
   color: #121212;
   text-decoration: none;
   border-radius: 30px;
   font-weight: bold;
   font-size: 1.1rem;
   transition: all 0.4s ease;
-  box-shadow: 0 6px 25px rgba(0, 255, 204, 0.3);
+  box-shadow: 0 6px 25px #fd924d;
 }
 
 .cta-button:hover {
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 10px 35px rgba(0, 255, 204, 0.5);
-  background: #00e6b8;
+  box-shadow: 0 10px 35px #fd924d;
+  background: #fd924d;
 }
 
 /*-------------------- Footer --------------------*/
@@ -256,7 +256,7 @@ footer {
 
 .footer-links a:hover {
   opacity: 1;
-  color: #00ffcc;
+  color: #fd924d;
 }
 
 .copyright {
@@ -267,11 +267,11 @@ footer {
 
 /*-------------------- Accents --------------------*/
 .accent {
-  color: #00ffcc;
+  color: #fd924d;
 }
 
 .highlight {
-  background: linear-gradient(135deg, #f5f523, #fa840e, #ff9411);
+  background: linear-gradient(135deg, #fd924d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
