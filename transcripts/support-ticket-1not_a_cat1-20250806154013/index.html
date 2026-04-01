@@ -1,0 +1,481 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcript - ticket-1not_a_cat1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #36393f;
+            color: #dcddde;
+            line-height: 1.4;
+        }
+        
+        .transcript-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #2f3136;
+            min-height: 100vh;
+        }
+        
+        .transcript-header {
+            background-color: #202225;
+            padding: 20px;
+            border-bottom: 1px solid #40444b;
+        }
+        
+        .channel-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .channel-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            background-color: #5865f2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        .channel-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        .guild-name {
+            font-size: 14px;
+            color: #b9bbbe;
+            margin-bottom: 5px;
+        }
+        
+        .transcript-info {
+            font-size: 12px;
+            color: #72767d;
+        }
+        
+        .messages-container {
+            padding: 20px;
+        }
+        
+        .message {
+            display: flex;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .message:hover {
+            background-color: rgba(79, 84, 92, 0.06);
+            margin: 0 -20px 20px -20px;
+            padding: 2px 20px;
+        }
+        
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+        
+        .message-content {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .message-header {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+        
+        .username {
+            font-weight: 600;
+            color: #ffffff;
+            margin-right: 8px;
+        }
+        
+        .user-id {
+            font-size: 11px;
+            color: #72767d;
+            margin-right: 8px;
+        }
+        
+        .timestamp {
+            font-size: 12px;
+            color: #72767d;
+        }
+        
+        .message-text {
+            word-wrap: break-word;
+            color: #dcddde;
+        }
+        
+        .message-text code {
+            background-color: #2f3136;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.85em;
+        }
+        
+        .message-text pre {
+            background-color: #2f3136;
+            border: 1px solid #40444b;
+            border-radius: 4px;
+            padding: 8px;
+            margin: 8px 0;
+            overflow-x: auto;
+        }
+        
+        .message-text pre code {
+            background: none;
+            padding: 0;
+        }
+        
+        .message-text strong {
+            font-weight: bold;
+        }
+        
+        .message-text em {
+            font-style: italic;
+        }
+        
+        .message-text u {
+            text-decoration: underline;
+        }
+        
+        .message-text del {
+            text-decoration: line-through;
+        }
+        
+        .system-message {
+            background-color: rgba(114, 118, 125, 0.1);
+            border-left: 4px solid #5865f2;
+            padding: 8px 12px;
+            margin: 16px 0;
+            border-radius: 4px;
+        }
+        
+        .bot-tag {
+            background-color: #5865f2;
+            color: white;
+            font-size: 10px;
+            padding: 1px 4px;
+            border-radius: 3px;
+            margin-left: 6px;
+            font-weight: 500;
+        }
+        
+        .attachment {
+            background-color: #2f3136;
+            border: 1px solid #40444b;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 8px;
+            display: inline-block;
+        }
+        
+        .attachment img {
+            max-width: 500px;
+            max-height: 400px;
+            border-radius: 8px;
+            margin-top: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .attachment img:hover {
+            transform: scale(1.02);
+        }
+        
+        .attachment-link {
+            color: #00aff4;
+            text-decoration: none;
+        }
+        
+        .attachment-link:hover {
+            text-decoration: underline;
+        }
+        
+        .embed {
+            background-color: rgba(46, 48, 54, 0.3);
+            border-left: 4px solid #5865f2;
+            border-radius: 4px;
+            padding: 12px;
+            margin-top: 8px;
+            max-width: 520px;
+        }
+        
+        .embed-title {
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+        }
+        
+        .embed-description {
+            margin-bottom: 8px;
+        }
+        
+        .embed-field {
+            margin-bottom: 8px;
+        }
+        
+        .embed-field-name {
+            font-weight: 600;
+            color: white;
+        }
+        
+        .embed-footer {
+            font-size: 12px;
+            color: #a3a6aa;
+            margin-top: 8px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #72767d;
+            font-size: 12px;
+            border-top: 1px solid #40444b;
+        }
+    </style>
+</head>
+<body>
+    <div class="transcript-container">
+        <div class="transcript-header">
+            <div class="guild-name">Black&#x27; DiscordBot</div>
+            <div class="channel-info">
+                <div class="channel-icon">#</div>
+                <div class="channel-name">ticket-1not_a_cat1</div>
+            </div>
+            <div class="transcript-info">
+                Transcript generated on August 06, 2025 at 03:40 PM UTC
+            </div>
+        </div>
+        
+        <div class="messages-container">
+
+            <div class="message">
+                <img class="avatar" src="https://cdn.discordapp.com/avatars/1018028330735370320/aabb2c5b99005bfa02ab61ff1cde722f.png?size=1024" alt="Avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="avatar" style="display:none; background: linear-gradient(45deg, #5865f2, #7289da); align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 16px;">R</div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="username">Rootware - TestBot#9131</span>
+                        <span class="user-id">(1018028330735370320)</span>
+                        <span class="timestamp">2025-08-06 13:35:24</span>
+                    </div>
+                    <div class="embed">
+            <div class="embed-title">Ticket Management</div><div class="embed-description">Moderators can claim or unclaim this ticket using the buttons below.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="message">
+                <img class="avatar" src="https://cdn.discordapp.com/avatars/1018028330735370320/aabb2c5b99005bfa02ab61ff1cde722f.png?size=1024" alt="Avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="avatar" style="display:none; background: linear-gradient(45deg, #5865f2, #7289da); align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 16px;">R</div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="username">Rootware - TestBot#9131</span>
+                        <span class="user-id">(1018028330735370320)</span>
+                        <span class="timestamp">2025-08-06 13:35:25</span>
+                    </div>
+                    <div class="embed">
+            <div class="embed-title">🎫 Ticket Created</div><div class="embed-description">Welcome @shadow_Himiko! A moderator will be with you shortly.</div>
+                    <div class="embed-field">
+                        <div class="embed-field-name">**📋 Instructions**</div>
+                        <div class="embed-field-value">Please describe your issue in detail. A moderator will claim your ticket soon.</div>
+                    </div>
+                    <div class="embed-footer">Ticket created at 06.08.2025 15:35 UTC</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="message">
+                <img class="avatar" src="https://cdn.discordapp.com/avatars/718410140637986889/50c40075e4408225f291d8ebe5baf367.png?size=1024" alt="Avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="avatar" style="display:none; background: linear-gradient(45deg, #5865f2, #7289da); align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 16px;">B</div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="username">black_kittys (black_Kittys)</span>
+                        
+                        <span class="user-id">(718410140637986889)</span>
+                        <span class="timestamp">2025-08-06 13:35:34</span>
+                    </div>
+                    <div class="message-text">Herzlich WIlkommen im Support!</div>
+                </div>
+            </div>
+            
+            <div class="message">
+                <img class="avatar" src="https://cdn.discordapp.com/avatars/718410140637986889/50c40075e4408225f291d8ebe5baf367.png?size=1024" alt="Avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="avatar" style="display:none; background: linear-gradient(45deg, #5865f2, #7289da); align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 16px;">B</div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="username">black_kittys (black_Kittys)</span>
+                        
+                        <span class="user-id">(718410140637986889)</span>
+                        <span class="timestamp">2025-08-06 13:35:40</span>
+                    </div>
+                    <div class="message-text">Wie kann ich Ihnen weiterhelfen?</div>
+                </div>
+            </div>
+            
+            <div class="message">
+                <img class="avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="avatar" style="display:none; background: linear-gradient(45deg, #5865f2, #7289da); align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 16px;">1</div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="username">1not_a_cat1 (shadow_Himiko)</span>
+                        
+                        <span class="user-id">(1381342484336087150)</span>
+                        <span class="timestamp">2025-08-06 13:38:49</span>
+                    </div>
+                    <div class="message-text">Ich wurde per Privatnachricht beleidigt</div>
+                </div>
+            </div>
+            
+            <div class="message">
+                <img class="avatar" src="https://cdn.discordapp.com/avatars/718410140637986889/50c40075e4408225f291d8ebe5baf367.png?size=1024" alt="Avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="avatar" style="display:none; background: linear-gradient(45deg, #5865f2, #7289da); align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 16px;">B</div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="username">black_kittys (black_Kittys)</span>
+                        
+                        <span class="user-id">(718410140637986889)</span>
+                        <span class="timestamp">2025-08-06 13:38:55</span>
+                    </div>
+                    <div class="message-text">Hast du vielleicht einen Beweis</div>
+                </div>
+            </div>
+            
+            <div class="message">
+                <img class="avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="avatar" style="display:none; background: linear-gradient(45deg, #5865f2, #7289da); align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 16px;">1</div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="username">1not_a_cat1 (shadow_Himiko)</span>
+                        
+                        <span class="user-id">(1381342484336087150)</span>
+                        <span class="timestamp">2025-08-06 13:39:00</span>
+                    </div>
+                    <div class="message-text">ja</div>
+                </div>
+            </div>
+            
+            <div class="message">
+                <img class="avatar" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9InVybCgjZ3JhZGllbnQpIi8+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50IiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzU4NjVmMiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM3Mjg5ZGEiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPnt9PC90ZXh0Pgo8L3N2Zz4K" alt="Avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="avatar" style="display:none; background: linear-gradient(45deg, #5865f2, #7289da); align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 16px;">1</div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="username">1not_a_cat1 (shadow_Himiko)</span>
+                        
+                        <span class="user-id">(1381342484336087150)</span>
+                        <span class="timestamp">2025-08-06 13:39:42</span>
+                    </div>
+                    <div class="message-text">
+                        <div class="attachment">
+                            <a href="https://cdn.discordapp.com/attachments/1402646243917955223/1402647326002249748/image.png?ex=6894ac9e&is=68935b1e&hm=40ce867cd85a894d7f2ceaeed613839ad696003581967b0e72c4920b24d5d5b4&" class="attachment-link" target="_blank">image.png</a>
+                            <img src="images/image_001.png" alt="image.png" onclick="window.open('https://cdn.discordapp.com/attachments/1402646243917955223/1402647326002249748/image.png?ex=6894ac9e&is=68935b1e&hm=40ce867cd85a894d7f2ceaeed613839ad696003581967b0e72c4920b24d5d5b4&', '_blank')">
+                        </div>
+                        </div>
+                </div>
+            </div>
+            
+            <div class="message">
+                <img class="avatar" src="https://cdn.discordapp.com/avatars/718410140637986889/50c40075e4408225f291d8ebe5baf367.png?size=1024" alt="Avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="avatar" style="display:none; background: linear-gradient(45deg, #5865f2, #7289da); align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 16px;">B</div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="username">black_kittys (black_Kittys)</span>
+                        
+                        <span class="user-id">(718410140637986889)</span>
+                        <span class="timestamp">2025-08-06 13:39:50</span>
+                    </div>
+                    <div class="message-text">Ah ok ich sehe. Ich werde mich drum kümmern</div>
+                </div>
+            </div>
+            
+            <div class="message">
+                <img class="avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="avatar" style="display:none; background: linear-gradient(45deg, #5865f2, #7289da); align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 16px;">1</div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="username">1not_a_cat1 (shadow_Himiko)</span>
+                        
+                        <span class="user-id">(1381342484336087150)</span>
+                        <span class="timestamp">2025-08-06 13:39:54</span>
+                    </div>
+                    <div class="message-text">Ok Danke</div>
+                </div>
+            </div>
+            
+            <div class="message">
+                <img class="avatar" src="https://cdn.discordapp.com/avatars/718410140637986889/50c40075e4408225f291d8ebe5baf367.png?size=1024" alt="Avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="avatar" style="display:none; background: linear-gradient(45deg, #5865f2, #7289da); align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 16px;">B</div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="username">black_kittys (black_Kittys)</span>
+                        
+                        <span class="user-id">(718410140637986889)</span>
+                        <span class="timestamp">2025-08-06 13:40:01</span>
+                    </div>
+                    <div class="message-text">Noch einen schönen Tag!</div>
+                </div>
+            </div>
+            
+            <div class="message">
+                <img class="avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="avatar" style="display:none; background: linear-gradient(45deg, #5865f2, #7289da); align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 16px;">1</div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="username">1not_a_cat1 (shadow_Himiko)</span>
+                        
+                        <span class="user-id">(1381342484336087150)</span>
+                        <span class="timestamp">2025-08-06 13:40:05</span>
+                    </div>
+                    <div class="message-text">Danke ihnen auch</div>
+                </div>
+            </div>
+            
+            <div class="message">
+                <img class="avatar" src="https://cdn.discordapp.com/avatars/1018028330735370320/aabb2c5b99005bfa02ab61ff1cde722f.png?size=1024" alt="Avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="avatar" style="display:none; background: linear-gradient(45deg, #5865f2, #7289da); align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 16px;">R</div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="username">Rootware - TestBot#9131</span>
+                        <span class="user-id">(1018028330735370320)</span>
+                        <span class="timestamp">2025-08-06 13:40:10</span>
+                    </div>
+                    <div class="embed">
+            <div class="embed-title">✅ Ticket Claimed</div><div class="embed-description">This ticket has been successfully claimed by @black_Kittys</div>
+                    <div class="embed-field">
+                        <div class="embed-field-name">**👤 Claimed by**</div>
+                        <div class="embed-field-value">@black_Kittys</div>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="footer">
+            Generated by Rootware Ticket Bot • Transcript System
+        </div>
+    </div>
+</body>
+</html>

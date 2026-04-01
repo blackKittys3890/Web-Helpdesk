@@ -1,0 +1,325 @@
+/*-------------------- Document Format --------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  min-height: 100vh;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/*-------------------- Hero Section --------------------*/
+.hero {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.tagline {
+  font-size: 1.4rem;
+  color: #b0b0b0;
+  margin-bottom: 4rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/*-------------------- Hero Buttons --------------------*/
+.buttons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 6rem;
+  flex-wrap: wrap;
+}
+
+.buttons a {
+  display: inline-block;
+  padding: 18px 45px;
+  background: transparent;
+  border: 2px solid #404040;
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  transition: all 0.4s ease;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+.buttons a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 204, 0.05),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.buttons a:hover {
+  border-color: #00ffcc;
+  color: #00ffcc;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 255, 204, 0.2);
+}
+
+.buttons a:hover::before {
+  left: 100%;
+}
+
+/*-------------------- Widget & Arguments --------------------*/
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+/* Widget */
+.discord-widget {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+}
+
+.discord-widget:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.discord-widget iframe {
+  display: block;
+  border: 2px solid #333;
+  border-radius: 20px;
+  width: 100%;
+}
+
+/* Arguments */
+.features {
+  text-align: left;
+}
+
+.features h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+}
+
+.feature-list li {
+  padding: 1rem 0;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #333;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #b0b0b0;
+}
+
+.feature-list li:last-child {
+  border-bottom: none;
+}
+
+.feature-list li::before {
+  content: "▸";
+  color: #00ffcc;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.feature-list li:hover {
+  color: #ffffff;
+}
+
+/*-------------------- Join Box --------------------*/
+.join-cta {
+  margin: 60px 0;
+  padding: 50px;
+  background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+  border: 2px solid #333;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.join-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 204, 0.15),
+    transparent
+  );
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.cta-content {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-content h2 {
+  font-size: 2.2rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.cta-content p {
+  font-size: 1.2rem;
+  color: #888;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 40px;
+  background: #00ffcc;
+  color: #121212;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.4s ease;
+  box-shadow: 0 6px 25px rgba(0, 255, 204, 0.3);
+}
+
+.cta-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 35px rgba(0, 255, 204, 0.5);
+  background: #00e6b8;
+}
+
+/*-------------------- Footer --------------------*/
+footer {
+  margin-top: 80px;
+  padding-top: 30px;
+  border-top: 1px solid #333;
+  text-align: center;
+}
+
+.footer-links {
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #888;
+  text-decoration: none;
+  margin: 0 20px;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  color: #00ffcc;
+}
+
+.copyright {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 10px;
+}
+
+/*-------------------- Accents --------------------*/
+.accent {
+  color: #00ffcc;
+}
+
+.highlight {
+  background: linear-gradient(135deg, #f5f523, #fa840e, #ff9411);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/*-------------------- Tablet --------------------*/
+@media (max-width: 968px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .features {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+/*-------------------- Smartphone --------------------*/
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .buttons a {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+  }
+
+  .features h2 {
+    font-size: 2rem;
+  }
+
+  .feature-list li {
+    font-size: 1rem;
+  }
+}

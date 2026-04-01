@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="0; url=https://discord.gg/N79Bj2nG36">
+  <title>Redirecting to Discord...</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+      color: #00ffcc;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    .redirect-container {
+      text-align: center;
+      padding: 40px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .logo {
+      font-size: 4rem;
+      margin-bottom: 30px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+      }
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #00ffcc, #00cc99);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    p {
+      font-size: 1.2rem;
+      color: #888;
+      margin-bottom: 40px;
+    }
+    
+    .spinner {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 30px;
+      border: 4px solid rgba(0, 255, 204, 0.1);
+      border-top: 4px solid #00ffcc;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .manual-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 30px;
+      background: linear-gradient(135deg, #00ffcc, #00cc99);
+      color: #121212;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: all 0.4s ease;
+      box-shadow: 0 6px 25px rgba(0, 255, 204, 0.3);
+    }
+    
+    .manual-link:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 35px rgba(0, 255, 204, 0.5);
+    }
+    
+    .background-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: 0.3;
+    }
+    
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 255, 204, 0.3), transparent);
+      animation: float 15s ease-in-out infinite;
+    }
+    
+    .circle:nth-child(1) {
+      width: 300px;
+      height: 300px;
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+    
+    .circle:nth-child(2) {
+      width: 200px;
+      height: 200px;
+      top: 60%;
+      right: 15%;
+      animation-delay: 2s;
+    }
+    
+    .circle:nth-child(3) {
+      width: 250px;
+      height: 250px;
+      bottom: 15%;
+      left: 20%;
+      animation-delay: 4s;
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: translate(30px, -30px) scale(1.1);
+        opacity: 0.5;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+      
+      .logo {
+        font-size: 3rem;
+      }
+    }
+  </style>
+  <script>
+    // Fallback redirect nach 1 Sekunde
+    setTimeout(function() {
+      window.location.href = 'https://discord.gg/N79Bj2nG36';
+    }, 1000);
+  </script>
+</head>
+<body>
+  <div class="background-animation">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+  
+  <div class="redirect-container">
+    <div class="logo">🚀</div>
+    <h1>Redirecting to Discord...</h1>
+    <div class="spinner"></div>
+    <p>You will be redirected to our Discord server in a moment</p>
+    <a href="https://discord.gg/N79Bj2nG36" class="manual-link">Click here if not redirected</a>
+  </div>
+</body>
+</html>

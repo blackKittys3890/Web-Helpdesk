@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Rootware – Social Media</title>
+  <style>
+    /* ========================================
+       DOCUMENT FORMATATION
+       ======================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      min-height: 100vh;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ========================================
+       HERO SECTION
+       ======================================== */
+    .hero {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      color: #ffffff;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    .tagline {
+      font-size: 1.4rem;
+      color: #b0b0b0;
+      margin-bottom: 4rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       ACCENT & HIGHLIGHTS
+       ======================================== */
+    .accent {
+      color: #00ffcc;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #00ffcc, #00cc99);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ========================================
+       SOCIAL BUTTONS
+       ======================================== */
+    .social-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      max-width: 600px;
+      margin: 0 auto 80px;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 15px;
+      padding: 20px 40px;
+      background: transparent;
+      border: 2px solid #404040;
+      color: #e0e0e0;
+      text-decoration: none;
+      font-size: 1.2rem;
+      border-radius: 12px;
+      transition: all 0.4s ease;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      transition: left 0.5s ease;
+    }
+
+    .social-btn-icon {
+      width: 28px;
+      height: 28px;
+      transition: all 0.5s ease;
+      filter: brightness(0.8);
+    }
+
+    .social-btn-text {
+      transition: all 0.5s ease;
+    }
+
+    .social-btn:hover .social-btn-text {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    .social-btn:hover {
+      justify-content: center;
+    }
+
+    .social-btn:hover .social-btn-icon {
+      transform: scale(1.5);
+    }
+
+    /* Discord Button */
+    .social-btn-discord::before {
+      background: linear-gradient(135deg, #5865F2 0%, #7289DA 100%);
+    }
+
+    .social-btn-discord:hover {
+      border-color: #5865F2;
+      color: #ffffff;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(88, 101, 242, 0.3);
+    }
+
+    .social-btn-discord:hover::before {
+      left: 0;
+    }
+
+    .social-btn-discord:hover .social-btn-icon {
+      filter: brightness(1.2) drop-shadow(0 0 8px rgba(88, 101, 242, 0.8));
+    }
+
+    /* Instagram Button */
+    .social-btn-instagram::before {
+      background: linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #FCAF45 100%);
+    }
+
+    .social-btn-instagram:hover {
+      border-color: #FD1D1D;
+      color: #ffffff;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(253, 29, 29, 0.3);
+    }
+
+    .social-btn-instagram:hover::before {
+      left: 0;
+    }
+
+    .social-btn-instagram:hover .social-btn-icon {
+      filter: brightness(1.2) drop-shadow(0 0 8px rgba(253, 29, 29, 0.8));
+    }
+
+    /* X/Twitter Button */
+    .social-btn-twitter::before {
+      background: linear-gradient(135deg, #000000 0%, #14171A 100%);
+    }
+
+    .social-btn-twitter:hover {
+      border-color: #ffffff;
+      color: #ffffff;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+    }
+
+    .social-btn-twitter:hover::before {
+      left: 0;
+    }
+
+    .social-btn-twitter:hover .social-btn-icon {
+      filter: brightness(1.5) drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+    }
+
+    /* TikTok Button */
+    .social-btn-tiktok::before {
+      background: linear-gradient(135deg, #000000 0%, #EE1D52 50%, #69C9D0 100%);
+    }
+
+    .social-btn-tiktok:hover {
+      border-color: #EE1D52;
+      color: #ffffff;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(238, 29, 82, 0.3);
+    }
+
+    .social-btn-tiktok:hover::before {
+      left: 0;
+    }
+
+    .social-btn-tiktok:hover .social-btn-icon {
+      filter: brightness(1.2) drop-shadow(0 0 8px rgba(238, 29, 82, 0.8));
+    }
+
+    /* ========================================
+       BACK BUTTON
+       ======================================== */
+    .back-button {
+      display: inline-block;
+      margin-bottom: 40px;
+      padding: 12px 24px;
+      background-color: #333;
+      color: #e0e0e0;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      border: 1px solid #444;
+    }
+    
+    .back-button:hover {
+      background-color: #00ffcc;
+      color: #121212;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 255, 204, 0.3);
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    footer {
+      margin-top: 80px;
+      padding-top: 30px;
+      border-top: 1px solid #333;
+      text-align: center;
+    }
+
+    .footer-links {
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      color: #888;
+      text-decoration: none;
+      margin: 0 20px;
+      opacity: 0.7;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      color: #00ffcc;
+    }
+
+    .copyright {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    /* ========================================
+       RESPONSIVE DESIGN - TABLET
+       ======================================== */
+    @media (max-width: 968px) {
+      h1 {
+        font-size: 3rem;
+      }
+
+      .tagline {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* ========================================
+       RESPONSIVE DESIGN - SMARTPHONE
+       ======================================== */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .tagline {
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+      }
+
+      .social-btn {
+        padding: 18px 30px;
+        font-size: 1.1rem;
+      }
+
+      .social-btn-icon {
+        width: 24px;
+        height: 24px;
+      }
+
+      .back-button {
+        position: static;
+        margin-bottom: 30px;
+        display: block;
+        text-align: center;
+      }
+
+      .footer-links a {
+        display: block;
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Back Button (top right) -->
+  <a href="/index.html" class="back-button">← Back to Home</a>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>🌐 <span class="highlight">Rootware</span> Social 🌐</h1>
+    <p class="tagline">Follow us on social media and stay connected with our community</p>
+  </div>
+
+  <!-- Social Media Buttons -->
+  <div class="social-buttons">
+    <a href="https://discord.com/invite/N79Bj2nG36" class="social-btn social-btn-discord" target="_blank" rel="noopener noreferrer">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord Icon" class="social-btn-icon">
+      <span class="social-btn-text">Join our Discord Server</span>
+    </a>
+
+    <a href="https://www.instagram.com/rootware_developers/" class="social-btn social-btn-instagram" target="_blank" rel="noopener noreferrer">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram Icon" class="social-btn-icon">
+      <span class="social-btn-text">Follow us on Instagram</span>
+    </a>
+
+    <a href="https://x.com/RootwareDeve" class="social-btn social-btn-twitter" target="_blank" rel="noopener noreferrer">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="X Icon" class="social-btn-icon">
+      <span class="social-btn-text">Follow us on X (Twitter)</span>
+    </a>
+
+    <a href="https://www.tiktok.com/@rootware_developers" class="social-btn social-btn-tiktok" target="_blank" rel="noopener noreferrer">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok Icon" class="social-btn-icon">
+      <span class="social-btn-text">Check out our TikTok</span>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="/imprint.html">Imprint</a>
+      <a href="/privacy.html">Privacy Policy</a>
+    </div>
+    <div class="copyright">© 2025 Rootware - All rights reserved</div>
+  </footer>
+
+</body>
+</html>

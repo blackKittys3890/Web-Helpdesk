@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rootware - Halloween Event</title>
+  <style>
+
+body {
+  background: radial-gradient(circle at center, #111 0%, #000 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+.monster {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(145deg, #222, #440000);
+  border-radius: 50%;
+  box-shadow: 0 0 50px rgba(255, 0, 0, 0.3);
+  animation: pulse 3s infinite ease-in-out;
+  margin-top: -150px;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 40px rgba(255, 0, 0, 0.4); }
+  50% { box-shadow: 0 0 80px rgba(255, 0, 0, 0.8); }
+}
+
+.horn {
+  position: absolute;
+  width: 65px;
+  height: 90px;
+  background: linear-gradient(
+    to bottom,
+    #dcdcdc 0%,     
+    #a9a9a9 40%,
+    #555 100%       
+  );
+  top: -45px;
+  border-radius: 50% 50% 20% 20%;
+  box-shadow:
+    inset 0 -8px 15px rgba(0, 0, 0, 0.4),
+    inset 0 5px 10px rgba(255, 255, 255, 0.3),
+    0 0 25px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.left-horn {
+  left: 15px;
+  transform: rotate(-25deg) skewY(5deg);
+}
+
+.right-horn {
+  right: 15px;
+  transform: rotate(25deg) skewY(-5deg);
+}
+
+.eye {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: #222;
+  border-radius: 50%;
+  top: 70px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+}
+
+.left-eye { left: 45px; }
+.right-eye { right: 45px; }
+
+.pupil {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, #ff0000 0%, #800000 100%);
+  border-radius: 50%;
+  top: 15px;
+  left: 15px;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+  transition: transform 0.1s;
+}
+
+.mouth {
+  position: absolute;
+  width: 120px;
+  height: 55px;
+  background: #000;
+  border-radius: 0 0 80px 80px;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 10px;
+  overflow: hidden;
+  box-shadow: inset 0 -10px 20px rgba(255, 0, 0, 0.5);
+}
+
+.body {
+  position: absolute;
+  width: 140px;
+  height: 200px;
+  background: linear-gradient(145deg, #2a0000, #550000);
+  bottom: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 30px 30px 40px 40px;
+  box-shadow:
+    0 0 30px rgba(255, 0, 0, 0.4),
+    inset 0 10px 20px rgba(255, 255, 255, 0.05),
+    inset 0 -10px 20px rgba(0, 0, 0, 0.3);
+  animation: body-breathe 3s infinite ease-in-out;
+}
+
+@keyframes body-breathe {
+  0%, 100% { transform: translateX(-50%) scaleY(1); }
+  50% { transform: translateX(-50%) scaleY(1.03); }
+}
+
+.arm {
+  position: absolute;
+  width: 50px;
+  height: 160px;
+  background: linear-gradient(145deg, #1a0000, #440000);
+  border-radius: 25px;
+  top: 20px;
+  box-shadow:
+    0 0 25px rgba(255, 0, 0, 0.4),
+    inset 0 5px 15px rgba(255, 255, 255, 0.05),
+    inset 0 -5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.left-arm {
+  left: -65px;
+  transform-origin: top center;
+  animation: wave-left 3s infinite ease-in-out;
+}
+
+.right-arm {
+  right: -65px;
+  transform-origin: top center;
+  animation: wave-right 3s infinite ease-in-out;
+}
+
+@keyframes wave-left {
+  0%, 100% { transform: rotate(-25deg); }
+  50% { transform: rotate(-45deg); }
+}
+
+@keyframes wave-right {
+  0%, 100% { transform: rotate(25deg); }
+  50% { transform: rotate(45deg); }
+}
+
+.claw {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.claw-finger {
+  width: 10px;
+  height: 25px;
+  background: linear-gradient(to bottom, #660000, #330000);
+  border-radius: 5px 5px 50% 50%;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  animation: claw-wiggle 2s infinite ease-in-out;
+}
+
+.claw-finger:nth-child(1) { animation-delay: 0s; height: 20px; }
+.claw-finger:nth-child(2) { animation-delay: 0.2s; height: 28px; }
+.claw-finger:nth-child(3) { animation-delay: 0.4s; height: 22px; }
+
+@keyframes claw-wiggle {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.1); }
+}
+
+.tooth {
+  width: 12px;
+  height: 18px;
+  background: linear-gradient(to bottom, #fff, #ccc);
+  clip-path: polygon(50% 100%, 100% 0%, 0% 0%);
+  margin-top: 0;
+  transform-origin: top center;
+  animation: tooth-wiggle 2.5s infinite ease-in-out;
+}
+
+@keyframes tooth-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(2deg); }
+}
+
+#monster-legs {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+
+  position: absolute;
+  bottom: -380px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.left-leg, .right-leg {
+  width: 55px;
+  height: 180px;
+  background: linear-gradient(145deg, #1a0000, #330000);
+  border-radius: 30px;
+  position: relative;
+  box-shadow:
+    0 0 25px rgba(255, 0, 0, 0.4),
+    inset 0 -8px 15px rgba(255, 0, 0, 0.2),
+    inset 0 5px 10px rgba(255, 255, 255, 0.05);
+  animation: stomp 2s infinite alternate ease-in-out;
+}
+
+.left-leg::after,
+.right-leg::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 25px;
+  background: radial-gradient(circle at center, #550000, #220000);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+@keyframes stomp {
+  0% { transform: rotate(2deg) translateY(0); }
+  100% { transform: rotate(-2deg) translateY(15px); }
+}
+
+.left-leg:hover, .right-leg:hover {
+  box-shadow:
+    0 0 40px rgba(255, 0, 0, 0.7),
+    inset 0 -10px 20px rgba(255, 0, 0, 0.4);
+}
+
+</style>
+</head>
+<body>
+    
+  <div class="monster">
+    
+    <div class="horn left-horn"></div>
+    <div class="horn right-horn"></div>
+
+    <div class="eye left-eye">
+      <div class="pupil"></div>
+    </div>
+    <div class="eye right-eye">
+      <div class="pupil"></div>
+    </div>
+
+    <div class="mouth">
+      <div class="tooth"></div>
+      <div class="tooth"></div>
+      <div class="tooth"></div>
+      <div class="tooth"></div>
+      <div class="tooth"></div>
+    </div>
+    
+    <div class="body">
+      <div class="arm left-arm">
+        <div class="claw">
+          <div class="claw-finger"></div>
+          <div class="claw-finger"></div>
+          <div class="claw-finger"></div>
+        </div>
+      </div>
+      <div class="arm right-arm">
+        <div class="claw">
+          <div class="claw-finger"></div>
+          <div class="claw-finger"></div>
+          <div class="claw-finger"></div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="monster-legs">
+      <div class="left-leg"></div>
+      <div class="right-leg"></div>
+    </div>
+
+  </div>
+
+<script>
+const eyes = document.querySelectorAll('.pupil');
+const monster = document.querySelector('.monster');
+
+document.addEventListener('mousemove', (e) => {
+  eyes.forEach(pupil => {
+    const rect = pupil.getBoundingClientRect();
+    const eyeX = rect.left + rect.width / 2;
+    const eyeY = rect.top + rect.height / 2;
+    const angleX = (e.clientX - eyeX) / 30;
+    const angleY = (e.clientY - eyeY) / 30;
+    pupil.style.transform = `translate(${angleX}px, ${angleY}px)`;
+  });
+});
+
+setInterval(() => {
+  monster.style.transform = `scale(${1 + Math.random() * 0.02})`;
+}, 500);
+
+setInterval(() => {
+  document.querySelectorAll('.eye').forEach(eye => {
+    eye.style.height = '15px';
+    setTimeout(() => eye.style.height = '60px', 150);
+  });
+}, 4000);
+
+document.querySelectorAll('#monster-legs div').forEach(leg => {
+  leg.addEventListener('click', () => {
+    leg.style.transform = 'translateY(10px) scale(1.05)';
+    leg.style.boxShadow = '0 0 50px rgba(255, 0, 0, 0.9)';
+    setTimeout(() => leg.removeAttribute('style'), 400);
+  });
+});
+</script>
+
+</body>
+</html>
